@@ -1,6 +1,6 @@
 const gulp = require('gulp');
 require('git-guppy')(gulp);
-const runSequence = require('run-sequence').use(gulp); //make sure we aren't using global gulp
+const runSequence = require('run-sequence').use(gulp); //Don't use global gulp
 const mocha = require('gulp-mocha');
 const eslint = require('gulp-eslint');
 const serverlessGulp = require('serverless-gulp');
@@ -29,43 +29,16 @@ gulp.task('deploy', () => {
     'set-int-aws-env',
     'build:lint',
     'test:unit',
-    'deploy:serverless:int',
-    'test:integration',
-    'set-sand-aws-env',
-    'deploy:serverless:sand',
-    'set-prod-aws-env',
-    'deploy:serverless:prod'
+    'deploy:serverless',
+    'test:integration'
   );
 });
 
-gulp.task('deploy:serverless:int', () => {
-  return gulp.src(paths.serverless, { read: false })
-      .pipe(serverlessGulp.exec('deploy', {
-        stage: 'int',
-        environment: 'integration',
-        cfRouterAccessKeyId: process.env.INT_AWS_ACCESS_KEY_ID,
-        cfRouterSecretAccessKey: process.env.INT_AWS_SECRET_ACCESS_KEY
-      }));
-});
-
-gulp.task('deploy:serverless:sand', () => {
-  return gulp.src(paths.serverless, { read: false })
-      .pipe(serverlessGulp.exec('deploy', {
-        stage: 'sand',
-        environment: 'sandbox',
-        cfRouterAccessKeyId: process.env.SAND_AWS_ACCESS_KEY_ID,
-        cfRouterSecretAccessKey: process.env.SAND_AWS_SECRET_ACCESS_KEY
-      }));
-});
-
-gulp.task('deploy:serverless:prod', () => {
+gulp.task('deploy:serverless', () => {
   return gulp.src(paths.serverless, { read: false })
       .pipe(serverlessGulp.exec('deploy', {
         stage: 'prod',
-        environment: 'production',
-        accountId: process.env.PROD_ACCOUNT_ID,
-        cfRouterAccessKeyId: process.env.SAND_AWS_ACCESS_KEY_ID, //The cloud front router is in the current int/sand environment it will eventually move to prod
-        cfRouterSecretAccessKey: process.env.SAND_AWS_SECRET_ACCESS_KEY//The cloud front router is in the current int/sand environment it will eventually move to prod
+        environment: 'production'
       }));
 });
 
@@ -74,19 +47,4 @@ gulp.task('build:lint', () => {
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
-});
-
-gulp.task('set-int-aws-env', () => {
-  process.env.AWS_ACCESS_KEY_ID = process.env.INT_AWS_ACCESS_KEY_ID;
-  process.env.AWS_SECRET_ACCESS_KEY = process.env.INT_AWS_SECRET_ACCESS_KEY;
-});
-
-gulp.task('set-sand-aws-env', () => {
-  process.env.AWS_ACCESS_KEY_ID = process.env.SAND_AWS_ACCESS_KEY_ID;
-  process.env.AWS_SECRET_ACCESS_KEY = process.env.SAND_AWS_SECRET_ACCESS_KEY;
-});
-
-gulp.task('set-prod-aws-env', () => {
-  process.env.AWS_ACCESS_KEY_ID = process.env.PROD_AWS_ACCESS_KEY_ID;
-  process.env.AWS_SECRET_ACCESS_KEY = process.env.PROD_AWS_SECRET_ACCESS_KEY;
 });
