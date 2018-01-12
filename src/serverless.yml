@@ -1,6 +1,9 @@
 
 service: sample-service
 
+plugins:
+  - serverless-plugin-include-dependencies
+
 provider:
   name: aws
   runtime: nodejs6.10
@@ -8,3 +11,7 @@ provider:
 functions:
   helloWorld:
     handler: handler.helloWorld
+    events:
+      - http:
+          path: /hello
+          method: get

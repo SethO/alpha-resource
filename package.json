@@ -35,6 +35,7 @@
     "gulp-zip": "^3.2.0",
     "guppy-pre-commit": "^0.3.0",
     "run-sequence": "^2.2.1",
-    "serverless-gulp": "^1.0.10"
+    "serverless-gulp": "^1.0.10",
+    "serverless-plugin-include-dependencies": "^3.0.0"
   }
 }
