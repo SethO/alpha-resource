@@ -6,6 +6,9 @@
   "scripts": {
     "test": "gulp test:unit"
   },
+  "engines": {
+    "node": ">6.6.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SethO/lambda-serverless.git"
