@@ -26,7 +26,6 @@ gulp.task('test:integration', () => {
 
 gulp.task('deploy', () => {
   return runSequence(
-    'set-int-aws-env',
     'build:lint',
     'test:unit',
     'deploy:serverless',
