@@ -3,6 +3,7 @@ service: sample-service
 
 plugins:
   - serverless-plugin-include-dependencies
+  - serverless-domain-manager
 
 provider:
   name: aws
@@ -15,3 +16,10 @@ functions:
       - http:
           path: /hello
           method: get
+
+custom:
+  customDomain:
+    domainName: 'sethorell.com'
+    basePath: ''
+    stage: ${self:provider.stage}
+    createRoute53Record: true
