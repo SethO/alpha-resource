@@ -16,6 +16,7 @@ functions:
       - http:
           path: /hello
           method: get
+          authorizer: aws_iam
 
 custom:
   customDomain:
