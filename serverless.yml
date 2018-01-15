@@ -1,5 +1,5 @@
 
-service: sample-service
+service: alpha
 
 plugins:
   - serverless-plugin-include-dependencies
@@ -21,6 +21,6 @@ functions:
 custom:
   customDomain:
     domainName: 'sethorell.com'
-    basePath: 'playground'
+    basePath: 'alpha'
     stage: ${opt:stage, self:provider.stage}
     createRoute53Record: true

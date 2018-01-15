@@ -1,5 +1,5 @@
 {
-  "name": "lambda-serverless",
+  "name": "alpha",
   "version": "1.0.0",
   "description": "Example AWS Lambda with Serverless deploy",
   "main": "src/handler.js",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SethO/lambda-serverless.git"
+    "url": "git+https://github.com/SethO/alpha-resource.git"
   },
   "author": "Seth Orell",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/SethO/lambda-serverless/issues"
+    "url": "https://github.com/SethO/alpha-resource/issues"
   },
-  "homepage": "https://github.com/SethO/lambda-serverless#readme",
+  "homepage": "https://github.com/SethO/alpha-resource#readme",
   "devDependencies": {
     "chai": "^4.1.2",
     "eslint": "^3.19.0",
