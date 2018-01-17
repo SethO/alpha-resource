@@ -20,7 +20,7 @@ gulp.task('test:unit', ['build:lint'], () => {
 });
 
 gulp.task('test:integration', () => {
-  return gulp.src('test/integration/**/*.js', {read: false})
+  return gulp.src('test/integration/**/integrationTests.js', {read: false})
     .pipe(mocha());
 });
 
