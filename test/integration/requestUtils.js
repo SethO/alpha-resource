@@ -24,6 +24,7 @@ const addUriSettingsToRequestParams = (requestParams) => {
 };
 
 const signRequest = (awsCredentials, requestParams) => {
+  console.log(`signRequest(${JSON.stringify(awsCredentials)}, ${JSON.stringify(requestParams)})`);
   const modifiedRequestParams = Object.assign({}, requestParams);
   const signedRequest = aws4.sign(modifiedRequestParams, awsCredentials);
   console.log(`signedRequest: ${JSON.stringify(signedRequest)}`);
