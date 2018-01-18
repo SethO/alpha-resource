@@ -1,4 +1,4 @@
-const RequestUtils = require('./requestUtils');
+const requestUtils = require('./requestUtils');
 
 class alphaSdk {
   
@@ -7,7 +7,6 @@ class alphaSdk {
   ) {
     this.awsAccessKeyId = awsAccessKeyId;
     this.awsSecretAccessKey = awsSecretAccessKey;
-    this.requestUtils = new RequestUtils();
   }
 
   hello() {
@@ -23,7 +22,7 @@ class alphaSdk {
       uri: 'https://sethorell.com/alpha/hello'
     };
 
-    return this.requestUtils.makeRequestAsync({awsCredentials, requestParams});
+    return requestUtils.makeRequestAsync({awsCredentials, requestParams});
   }
 }
 
