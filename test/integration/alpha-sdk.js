@@ -19,8 +19,8 @@ class alphaSdk {
       headers: {
         'Content-Type': 'application/json'
       },
-      // uri: 'https://sethorell.com/alpha/hello'
-      uri: 'https://w8llizht3e.execute-api.us-east-1.amazonaws.com/prod/hello'
+      uri: 'https://sethorell.com/alpha/hello'
+      // uri: 'https://w8llizht3e.execute-api.us-east-1.amazonaws.com/prod/hello'
     };
 
     return requestUtils.makeRequestAsync({awsCredentials, requestParams});
