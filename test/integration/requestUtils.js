@@ -16,7 +16,7 @@ module.exports.makeRequestAsync = ({awsCredentials, requestParams}) => {
 
 const addUriSettingsToRequestParams = (requestParams) => {
   const updatedRequestParams = requestParams;
-  const parsedUrl = url.parse(requestParams.url);
+  const parsedUrl = url.parse(requestParams.uri);
   updatedRequestParams.host = parsedUrl.host;
   updatedRequestParams.path = parsedUrl.path;
   
