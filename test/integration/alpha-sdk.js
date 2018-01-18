@@ -2,10 +2,9 @@ const RequestUtils = require('./requestUtils');
 
 class alphaSdk {
   
-  constructor({
-    awsAccessKeyId = process.env.ALPHA_API_AWS_ACCESS_KEY_ID,
+  constructor(awsAccessKeyId = process.env.ALPHA_API_AWS_ACCESS_KEY_ID,
     awsSecretAccessKey = process.env.ALPHA_API_AWS_SECRET_ACCESS_KEY
-  }) {
+  ) {
     this.awsAccessKeyId = awsAccessKeyId;
     this.awsSecretAccessKey = awsSecretAccessKey;
     this.requestUtils = new RequestUtils();
