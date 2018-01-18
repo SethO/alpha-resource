@@ -27,7 +27,7 @@ const signRequest = (awsCredentials, requestParams) => {
   console.log(`signRequest(${JSON.stringify(awsCredentials)}, ${JSON.stringify(requestParams)})`);
   const modifiedRequestParams = Object.assign({}, requestParams);
   const result = aws4.sign(modifiedRequestParams, awsCredentials);
-  console.log(`modifiedRequestParams: ${JSON.stringify(modifiedRequestParams)}`);
-  console.log(`result: ${JSON.stringify(result)}`);
+  // console.log(`modifiedRequestParams: ${JSON.stringify(modifiedRequestParams)}`);
+
   return result;
 };
